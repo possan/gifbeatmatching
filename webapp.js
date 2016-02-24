@@ -72,6 +72,7 @@ window.addEventListener('load', function() {
 	var G3 = new GifMatcher();
 	var G4 = new GifMatcher();
 	var G5 = new GifMatcher();
+	var G6 = new GifMatcher();
 
 	var canvas_el = document.getElementById('canvasdisplay');
 	var canvas_ctx = canvas_el.getContext('2d');
@@ -137,7 +138,12 @@ window.addEventListener('load', function() {
 
 			if (G5.dirty) {
 				var p3 = G5.getFrame(G5.frame);
-				drawGifFrame(p3, 800, 0, G5);
+				drawGifFrame(p3, 900, 0, G5);
+			}
+
+			if (G6.dirty) {
+				var p3 = G6.getFrame(G6.frame);
+				drawGifFrame(p3, 300, 400, G6);
 			}
 		}
 
@@ -152,6 +158,7 @@ window.addEventListener('load', function() {
 		G3.setBpm(bpm);
 		G4.setBpm(bpm);
 		G5.setBpm(bpm);
+		G6.setBpm(bpm);
 	}
 
 	bpminput_el.addEventListener('change', function() {
@@ -168,6 +175,7 @@ window.addEventListener('load', function() {
 		G3.seek(0);
 		G4.seek(0);
 		G5.seek(0);
+		G6.seek(0);
 		updateLabels();
 	});
 
@@ -193,6 +201,7 @@ window.addEventListener('load', function() {
 		G3.tick(D);
 		G4.tick(D);
 		G5.tick(D);
+		G6.tick(D);
 
 		// console.log('D', D, G1.frame, G2.frame);
 
@@ -221,6 +230,10 @@ window.addEventListener('load', function() {
 
 	setTimeout(function() {
 		loadGif(G5, 'test1.gif');
+	}, 3500);
+
+	setTimeout(function() {
+		loadGif(G6, 'test6.gif');
 	}, 3500);
 
 });
